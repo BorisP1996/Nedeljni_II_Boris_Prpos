@@ -10,21 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Zadatak_1.ViewModel;
 
-namespace Zadatak_1
+namespace Zadatak_1.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for CreatePatient.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CreatePatient : Window
     {
-        public MainWindow()
+        public CreatePatient()
         {
             InitializeComponent();
-            this.DataContext = new MainWindowViewModel(this);
         }
     }
 }
