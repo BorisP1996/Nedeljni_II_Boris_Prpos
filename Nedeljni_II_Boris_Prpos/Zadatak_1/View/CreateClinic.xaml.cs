@@ -16,14 +16,14 @@ using Zadatak_1.ViewModel;
 namespace Zadatak_1.View
 {
     /// <summary>
-    /// Interaction logic for Admin.xaml
+    /// Interaction logic for CreateClinic.xaml
     /// </summary>
-    public partial class Admin : Window
+    public partial class CreateClinic : Window
     {
-        public Admin()
+        public CreateClinic()
         {
             InitializeComponent();
-            this.DataContext = new AdminViewModel(this);
+            this.DataContext = new CreateClinicViewModel(this);
         }
     }
 }

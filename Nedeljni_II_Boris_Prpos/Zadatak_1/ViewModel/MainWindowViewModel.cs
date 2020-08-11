@@ -101,6 +101,8 @@ namespace Zadatak_1.ViewModel
                 else if (methods.DeterminLoger(Username,Password)==1)
                 {
                     MessageBox.Show("Welcome admin");
+                    Admin admin = new Admin();
+                    admin.ShowDialog();
                 }
                 else if (methods.DeterminLoger(Username, Password) == 2)
                 {

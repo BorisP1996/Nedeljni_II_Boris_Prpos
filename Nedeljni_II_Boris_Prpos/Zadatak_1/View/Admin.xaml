@@ -7,6 +7,41 @@
         mc:Ignorable="d"
         Title="Admin" Height="450" Width="800">
     <Grid>
-        
+        <Button Content="Create manager"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="100"
+                Margin="35,35,0,0"
+                Command="{Binding Manager,UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Create maintance"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="100"
+                Margin="35,80,0,0" 
+                Command="{Binding Maintance,UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Create doctor"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="100"
+                Margin="35,125,0,0" 
+                Command="{Binding Doctor,UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Create patient"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="100"
+                Margin="35,175,0,0" 
+                Command="{Binding Patient,UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Close"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="100"
+                Margin="35,335,0,0" 
+                Command="{Binding Close,UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Create clinic"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="100"
+                Margin="35,225,0,0"
+                Command="{Binding Clinic, UpdateSourceTrigger=PropertyChanged}" />
     </Grid>
 </Window>

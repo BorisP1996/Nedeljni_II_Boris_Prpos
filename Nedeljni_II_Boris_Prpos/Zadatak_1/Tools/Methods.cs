@@ -304,5 +304,65 @@ namespace Zadatak_1.Tools
                 return 10;
             }
         }
+        public bool UniqueDoctorNumber(string number)
+        {
+            try
+            {
+                using (Entity context = new Entity())
+                {
+                    List<tblDoctor> doctorList = context.tblDoctors.ToList();
+                    List<string> numbers = new List<string>();
+                    foreach (tblDoctor item in doctorList)
+                    {
+                        numbers.Add(item.UniqueNumber);
+                    }
+
+                    if (!numbers.Contains(number) && number.Length==5)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+                return false;
+            }
+        }
+        public bool UniqueDoctorAccount(string number)
+        {
+            try
+            {
+                using (Entity context = new Entity())
+                {
+                    List<tblDoctor> doctorList = context.tblDoctors.ToList();
+                    List<string> accounts = new List<string>();
+                    foreach (tblDoctor item in doctorList)
+                    {
+                        accounts.Add(item.AccountNumber);
+                    }
+
+                    if (!accounts.Contains(number))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+                return false;
+            }
+        }
     }
 }
