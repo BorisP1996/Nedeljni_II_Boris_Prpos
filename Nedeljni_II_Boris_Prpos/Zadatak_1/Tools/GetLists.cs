@@ -62,5 +62,38 @@ namespace Zadatak_1.Tools
                 return null;
             }
         }
+        /// <summary>
+        /// If return more than 1 - invalid, because there must be only one admin
+        /// </summary>
+        /// <returns></returns>
+        public int GetAdmins()
+        {
+            try
+            {
+                using (Entity context = new Entity())
+                {
+                    int count = 0;
+                    List<tblUser> adminList = context.tblUsers.ToList();
+                    foreach (tblUser item in adminList)
+                    {
+                        if (item.Manager==true)
+                        {
+                            count++;
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    return count;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+                return 10;
+            }
+        }
     }
 }

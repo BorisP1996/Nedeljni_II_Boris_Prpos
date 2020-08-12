@@ -30,5 +30,6 @@ namespace Zadatak_1.Model
         public Nullable<bool> Reception { get; set; }
         public Nullable<int> ShiftID { get; set; }
         public string UniqueNumber { get; set; }
+        public bool CreatedClinic { get; set; }
     }
 }

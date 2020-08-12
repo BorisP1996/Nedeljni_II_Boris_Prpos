@@ -101,8 +101,20 @@ namespace Zadatak_1.ViewModel
                 else if (methods.DeterminLoger(Username,Password)==1)
                 {
                     MessageBox.Show("Welcome admin");
-                    Admin admin = new Admin();
-                    admin.ShowDialog();
+                    tblUser viaUser = (from r in context.tblUsers where r.Username == Username && r.Pasword == Password select r).FirstOrDefault();
+                    if (viaUser.CreatedClinic!=true)
+                    {
+                        CreateClinic createClinic = new CreateClinic(Username);
+                        createClinic.ShowDialog();
+                        Admin admin = new Admin();
+                        admin.ShowDialog();
+                        viaUser.CreatedClinic = true;
+                    }
+                    else
+                    {
+                        Admin admin = new Admin();
+                        admin.ShowDialog();
+                    }                  
                 }
                 else if (methods.DeterminLoger(Username, Password) == 2)
                 {

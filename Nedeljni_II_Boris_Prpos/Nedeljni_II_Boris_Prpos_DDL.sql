@@ -38,6 +38,7 @@ Gender nvarchar(1) not null,
 Birthdate date not null,
 Citizenship nvarchar (50) not null,
 Manager bit not null,
+CreatedClinic bit not null,
 Username nvarchar (50) unique not null,
 Pasword nvarchar (50) unique not null 
 )

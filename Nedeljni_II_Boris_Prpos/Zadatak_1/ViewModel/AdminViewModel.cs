@@ -144,37 +144,7 @@ namespace Zadatak_1.ViewModel
                 MessageBox.Show(ex.ToString());
             }
         }
-        private ICommand clinic;
-        public ICommand Clinic
-        {
-            get
-            {
-                if (clinic == null)
-                {
-                    clinic = new RelayCommand(param => ClinicExecute(), param => CanClinicExecute());
-                }
-                return clinic;
-            }
-        }
-
-        private bool CanClinicExecute()
-        {
-            return true;
-        }
-
-        private void ClinicExecute()
-        {
-            try
-            {
-                CreateClinic createClin = new CreateClinic();
-                createClin.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.ToString());
-            }
-        }
+       
         private ICommand close;
         public ICommand Close
         {

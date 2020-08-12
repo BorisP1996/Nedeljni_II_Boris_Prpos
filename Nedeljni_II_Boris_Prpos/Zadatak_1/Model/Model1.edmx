@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Nedeljni_II_Boris_Prpos_DDLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Nedeljni_II_Boris_Prpos_DDLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblDoctor">
           <Key>
             <PropertyRef Name="DoctorID" />
@@ -83,6 +83,7 @@
           <Property Name="Birthdate" Type="date" Nullable="false" />
           <Property Name="Citizenship" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Manager" Type="bit" Nullable="false" />
+          <Property Name="CreatedClinic" Type="bit" Nullable="false" />
           <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Pasword" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -97,6 +98,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwDoctor' does not
             <PropertyRef Name="Birthdate" />
             <PropertyRef Name="Citizenship" />
             <PropertyRef Name="Manager" />
+            <PropertyRef Name="CreatedClinic" />
             <PropertyRef Name="Username" />
             <PropertyRef Name="Pasword" />
             <PropertyRef Name="DoctorID" />
@@ -108,6 +110,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwDoctor' does not
           <Property Name="Birthdate" Type="date" Nullable="false" />
           <Property Name="Citizenship" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Manager" Type="bit" Nullable="false" />
+          <Property Name="CreatedClinic" Type="bit" Nullable="false" />
           <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Pasword" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DoctorID" Type="int" Nullable="false" />
@@ -129,6 +132,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwMaintance' does 
             <PropertyRef Name="Birthdate" />
             <PropertyRef Name="Citizenship" />
             <PropertyRef Name="Manager" />
+            <PropertyRef Name="CreatedClinic" />
             <PropertyRef Name="Username" />
             <PropertyRef Name="Pasword" />
             <PropertyRef Name="MaintanceID" />
@@ -143,6 +147,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwMaintance' does 
           <Property Name="Birthdate" Type="date" Nullable="false" />
           <Property Name="Citizenship" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Manager" Type="bit" Nullable="false" />
+          <Property Name="CreatedClinic" Type="bit" Nullable="false" />
           <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Pasword" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MaintanceID" Type="int" Nullable="false" />
@@ -161,6 +166,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwManager' does no
             <PropertyRef Name="Birthdate" />
             <PropertyRef Name="Citizenship" />
             <PropertyRef Name="Manager" />
+            <PropertyRef Name="CreatedClinic" />
             <PropertyRef Name="Username" />
             <PropertyRef Name="Pasword" />
             <PropertyRef Name="ManagerID" />
@@ -172,6 +178,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwManager' does no
           <Property Name="Birthdate" Type="date" Nullable="false" />
           <Property Name="Citizenship" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Manager" Type="bit" Nullable="false" />
+          <Property Name="CreatedClinic" Type="bit" Nullable="false" />
           <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Pasword" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ManagerID" Type="int" Nullable="false" />
@@ -191,6 +198,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
             <PropertyRef Name="Birthdate" />
             <PropertyRef Name="Citizenship" />
             <PropertyRef Name="Manager" />
+            <PropertyRef Name="CreatedClinic" />
             <PropertyRef Name="Username" />
             <PropertyRef Name="Pasword" />
             <PropertyRef Name="PatientID" />
@@ -202,6 +210,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
           <Property Name="Birthdate" Type="date" Nullable="false" />
           <Property Name="Citizenship" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Manager" Type="bit" Nullable="false" />
+          <Property Name="CreatedClinic" Type="bit" Nullable="false" />
           <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Pasword" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CardNumber" Type="nvarchar" MaxLength="40" />
@@ -209,7 +218,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
           <Property Name="DateExpire" Type="date" />
           <Property Name="DoctorID" Type="int" />
         </EntityType>
-        <Association Name="FK__tblDoctor__Manag__55F4C372">
+        <Association Name="FK__tblDoctor__Manag__73852659">
           <End Role="tblManager" Type="Self.tblManager" Multiplicity="0..1" />
           <End Role="tblDoctor" Type="Self.tblDoctor" Multiplicity="*" />
           <ReferentialConstraint>
@@ -221,7 +230,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblDoctor__Shift__56E8E7AB">
+        <Association Name="FK__tblDoctor__Shift__74794A92">
           <End Role="tblShift" Type="Self.tblShift" Multiplicity="0..1" />
           <End Role="tblDoctor" Type="Self.tblDoctor" Multiplicity="*" />
           <ReferentialConstraint>
@@ -233,7 +242,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblDoctor__UserI__55009F39">
+        <Association Name="FK__tblDoctor__UserI__72910220">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
           <End Role="tblDoctor" Type="Self.tblDoctor" Multiplicity="*" />
           <ReferentialConstraint>
@@ -245,7 +254,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblMainta__UserI__531856C7">
+        <Association Name="FK__tblMainta__UserI__70A8B9AE">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
           <End Role="tblMaintance" Type="Self.tblMaintance" Multiplicity="*" />
           <ReferentialConstraint>
@@ -257,7 +266,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblManage__UserI__540C7B00">
+        <Association Name="FK__tblManage__UserI__719CDDE7">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
           <End Role="tblManager" Type="Self.tblManager" Multiplicity="*" />
           <ReferentialConstraint>
@@ -269,7 +278,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblPatien__Docto__58D1301D">
+        <Association Name="FK__tblPatien__Docto__76619304">
           <End Role="tblDoctor" Type="Self.tblDoctor" Multiplicity="0..1" />
           <End Role="tblPatient" Type="Self.tblPatient" Multiplicity="*" />
           <ReferentialConstraint>
@@ -281,7 +290,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblPatien__UserI__57DD0BE4">
+        <Association Name="FK__tblPatien__UserI__756D6ECB">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
           <End Role="tblPatient" Type="Self.tblPatient" Multiplicity="*" />
           <ReferentialConstraint>
@@ -310,6 +319,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
     [vwDoctor].[Birthdate] AS [Birthdate], 
     [vwDoctor].[Citizenship] AS [Citizenship], 
     [vwDoctor].[Manager] AS [Manager], 
+    [vwDoctor].[CreatedClinic] AS [CreatedClinic], 
     [vwDoctor].[Username] AS [Username], 
     [vwDoctor].[Pasword] AS [Pasword], 
     [vwDoctor].[DoctorID] AS [DoctorID], 
@@ -330,6 +340,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
     [vwMaintance].[Birthdate] AS [Birthdate], 
     [vwMaintance].[Citizenship] AS [Citizenship], 
     [vwMaintance].[Manager] AS [Manager], 
+    [vwMaintance].[CreatedClinic] AS [CreatedClinic], 
     [vwMaintance].[Username] AS [Username], 
     [vwMaintance].[Pasword] AS [Pasword], 
     [vwMaintance].[MaintanceID] AS [MaintanceID], 
@@ -347,6 +358,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
     [vwManager].[Birthdate] AS [Birthdate], 
     [vwManager].[Citizenship] AS [Citizenship], 
     [vwManager].[Manager] AS [Manager], 
+    [vwManager].[CreatedClinic] AS [CreatedClinic], 
     [vwManager].[Username] AS [Username], 
     [vwManager].[Pasword] AS [Pasword], 
     [vwManager].[ManagerID] AS [ManagerID], 
@@ -365,6 +377,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
     [vwPatient].[Birthdate] AS [Birthdate], 
     [vwPatient].[Citizenship] AS [Citizenship], 
     [vwPatient].[Manager] AS [Manager], 
+    [vwPatient].[CreatedClinic] AS [CreatedClinic], 
     [vwPatient].[Username] AS [Username], 
     [vwPatient].[Pasword] AS [Pasword], 
     [vwPatient].[CardNumber] AS [CardNumber], 
@@ -373,37 +386,36 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
     [vwPatient].[DoctorID] AS [DoctorID]
     FROM [dbo].[vwPatient] AS [vwPatient]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__tblDoctor__Manag__55F4C372" Association="Self.FK__tblDoctor__Manag__55F4C372">
+          <AssociationSet Name="FK__tblDoctor__Manag__73852659" Association="Self.FK__tblDoctor__Manag__73852659">
             <End Role="tblManager" EntitySet="tblManager" />
             <End Role="tblDoctor" EntitySet="tblDoctor" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblDoctor__Shift__56E8E7AB" Association="Self.FK__tblDoctor__Shift__56E8E7AB">
+          <AssociationSet Name="FK__tblDoctor__Shift__74794A92" Association="Self.FK__tblDoctor__Shift__74794A92">
             <End Role="tblShift" EntitySet="tblShift" />
             <End Role="tblDoctor" EntitySet="tblDoctor" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblDoctor__UserI__55009F39" Association="Self.FK__tblDoctor__UserI__55009F39">
+          <AssociationSet Name="FK__tblDoctor__UserI__72910220" Association="Self.FK__tblDoctor__UserI__72910220">
             <End Role="tblUser" EntitySet="tblUser" />
             <End Role="tblDoctor" EntitySet="tblDoctor" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblMainta__UserI__531856C7" Association="Self.FK__tblMainta__UserI__531856C7">
+          <AssociationSet Name="FK__tblMainta__UserI__70A8B9AE" Association="Self.FK__tblMainta__UserI__70A8B9AE">
             <End Role="tblUser" EntitySet="tblUser" />
             <End Role="tblMaintance" EntitySet="tblMaintance" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblManage__UserI__540C7B00" Association="Self.FK__tblManage__UserI__540C7B00">
+          <AssociationSet Name="FK__tblManage__UserI__719CDDE7" Association="Self.FK__tblManage__UserI__719CDDE7">
             <End Role="tblUser" EntitySet="tblUser" />
             <End Role="tblManager" EntitySet="tblManager" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblPatien__Docto__58D1301D" Association="Self.FK__tblPatien__Docto__58D1301D">
+          <AssociationSet Name="FK__tblPatien__Docto__76619304" Association="Self.FK__tblPatien__Docto__76619304">
             <End Role="tblDoctor" EntitySet="tblDoctor" />
             <End Role="tblPatient" EntitySet="tblPatient" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblPatien__UserI__57DD0BE4" Association="Self.FK__tblPatien__UserI__57DD0BE4">
+          <AssociationSet Name="FK__tblPatien__UserI__756D6ECB" Association="Self.FK__tblPatien__UserI__756D6ECB">
             <End Role="tblUser" EntitySet="tblUser" />
             <End Role="tblPatient" EntitySet="tblPatient" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Nedeljni_II_Boris_Prpos_DDLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -501,6 +513,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
           <NavigationProperty Name="tblMaintances" Relationship="Self.FK__tblMainta__UserI__531856C7" FromRole="tblUser" ToRole="tblMaintance" />
           <NavigationProperty Name="tblManagers" Relationship="Self.FK__tblManage__UserI__540C7B00" FromRole="tblUser" ToRole="tblManager" />
           <NavigationProperty Name="tblPatients" Relationship="Self.FK__tblPatien__UserI__57DD0BE4" FromRole="tblUser" ToRole="tblPatient" />
+          <Property Name="CreatedClinic" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="vwDoctor">
           <Key>
@@ -514,6 +527,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
             <PropertyRef Name="Username" />
             <PropertyRef Name="Pasword" />
             <PropertyRef Name="DoctorID" />
+            <PropertyRef Name="CreatedClinic" />
           </Key>
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -531,6 +545,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
           <Property Name="Reception" Type="Boolean" />
           <Property Name="ShiftID" Type="Int32" />
           <Property Name="UniqueNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedClinic" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="vwMaintance">
           <Key>
@@ -547,6 +562,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
             <PropertyRef Name="AmbulanceDuty" />
             <PropertyRef Name="GrowPermision" />
             <PropertyRef Name="InvalidDuty" />
+            <PropertyRef Name="CreatedClinic" />
           </Key>
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -561,6 +577,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
           <Property Name="AmbulanceDuty" Type="Boolean" Nullable="false" />
           <Property Name="GrowPermision" Type="Boolean" Nullable="false" />
           <Property Name="InvalidDuty" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedClinic" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="vwManager">
           <Key>
@@ -574,6 +591,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
             <PropertyRef Name="Username" />
             <PropertyRef Name="Pasword" />
             <PropertyRef Name="ManagerID" />
+            <PropertyRef Name="CreatedClinic" />
           </Key>
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -589,6 +607,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
           <Property Name="MaxDoctors" Type="Int32" />
           <Property Name="MinRooms" Type="Int32" />
           <Property Name="Erors" Type="Int32" />
+          <Property Name="CreatedClinic" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="vwPatient">
           <Key>
@@ -602,6 +621,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
             <PropertyRef Name="Username" />
             <PropertyRef Name="Pasword" />
             <PropertyRef Name="PatientID" />
+            <PropertyRef Name="CreatedClinic" />
           </Key>
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -616,6 +636,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
           <Property Name="PatientID" Type="Int32" Nullable="false" />
           <Property Name="DateExpire" Type="DateTime" Precision="0" />
           <Property Name="DoctorID" Type="Int32" />
+          <Property Name="CreatedClinic" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="FK__tblDoctor__Manag__55F4C372">
           <End Role="tblManager" Type="Self.tblManager" Multiplicity="0..1" />
@@ -824,6 +845,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
           <EntitySetMapping Name="tblUsers">
             <EntityTypeMapping TypeName="Nedeljni_II_Boris_Prpos_DDLModel.tblUser">
               <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="CreatedClinic" ColumnName="CreatedClinic" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="IdCard" ColumnName="IdCard" />
@@ -839,6 +861,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
           <EntitySetMapping Name="vwDoctors">
             <EntityTypeMapping TypeName="Nedeljni_II_Boris_Prpos_DDLModel.vwDoctor">
               <MappingFragment StoreEntitySet="vwDoctor">
+                <ScalarProperty Name="CreatedClinic" ColumnName="CreatedClinic" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="IdCard" ColumnName="IdCard" />
@@ -861,6 +884,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
           <EntitySetMapping Name="vwMaintances">
             <EntityTypeMapping TypeName="Nedeljni_II_Boris_Prpos_DDLModel.vwMaintance">
               <MappingFragment StoreEntitySet="vwMaintance">
+                <ScalarProperty Name="CreatedClinic" ColumnName="CreatedClinic" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="IdCard" ColumnName="IdCard" />
@@ -880,6 +904,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
           <EntitySetMapping Name="vwManagers">
             <EntityTypeMapping TypeName="Nedeljni_II_Boris_Prpos_DDLModel.vwManager">
               <MappingFragment StoreEntitySet="vwManager">
+                <ScalarProperty Name="CreatedClinic" ColumnName="CreatedClinic" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="IdCard" ColumnName="IdCard" />
@@ -900,6 +925,7 @@ warning 6002: The table/view 'Nedeljni_II_Boris_Prpos_DDL.dbo.vwPatient' does no
           <EntitySetMapping Name="vwPatients">
             <EntityTypeMapping TypeName="Nedeljni_II_Boris_Prpos_DDLModel.vwPatient">
               <MappingFragment StoreEntitySet="vwPatient">
+                <ScalarProperty Name="CreatedClinic" ColumnName="CreatedClinic" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="IdCard" ColumnName="IdCard" />

@@ -27,5 +27,6 @@ namespace Zadatak_1.Model
         public bool AmbulanceDuty { get; set; }
         public bool GrowPermision { get; set; }
         public bool InvalidDuty { get; set; }
+        public bool CreatedClinic { get; set; }
     }
 }

@@ -37,11 +37,5 @@
                 Width="100"
                 Margin="35,335,0,0" 
                 Command="{Binding Close,UpdateSourceTrigger=PropertyChanged}"/>
-        <Button Content="Create clinic"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Width="100"
-                Margin="35,225,0,0"
-                Command="{Binding Clinic, UpdateSourceTrigger=PropertyChanged}" />
     </Grid>
 </Window>

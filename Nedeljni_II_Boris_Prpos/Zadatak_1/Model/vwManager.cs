@@ -28,5 +28,6 @@ namespace Zadatak_1.Model
         public Nullable<int> MaxDoctors { get; set; }
         public Nullable<int> MinRooms { get; set; }
         public Nullable<int> Erors { get; set; }
+        public bool CreatedClinic { get; set; }
     }
 }

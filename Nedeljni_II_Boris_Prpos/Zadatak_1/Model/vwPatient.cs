@@ -27,5 +27,6 @@ namespace Zadatak_1.Model
         public int PatientID { get; set; }
         public Nullable<System.DateTime> DateExpire { get; set; }
         public Nullable<int> DoctorID { get; set; }
+        public bool CreatedClinic { get; set; }
     }
 }

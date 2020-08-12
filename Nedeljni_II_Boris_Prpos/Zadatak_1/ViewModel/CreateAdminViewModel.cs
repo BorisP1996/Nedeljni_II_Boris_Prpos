@@ -17,6 +17,7 @@ namespace Zadatak_1.ViewModel
         CreateAdmin createAdmin;
         Entity context = new Entity();
         Methods methods = new Methods();
+        GetLists getLists = new GetLists();
 
         public CreateAdminViewModel(CreateAdmin adminOpen)
         {
@@ -95,46 +96,53 @@ namespace Zadatak_1.ViewModel
             {
                 using (Entity context = new Entity())
                 {
-
-                    tblUser newUser = new tblUser();
-                    newUser.Birthdate = User.Birthdate;
-                    newUser.FullName = First + " " + Second;
-                    newUser.Citizenship = User.Citizenship;
-                    newUser.IdCard = User.IdCard;
-                    newUser.Username = User.Username;
-                    newUser.Pasword = User.Pasword;
-                    newUser.Gender = User.Gender;
-                    newUser.Manager = true;
-                    if (methods.ValidateAdmin(newUser.Username, newUser.Pasword, newUser.IdCard) == false)
+                    if (getLists.GetAdmins()>0)
                     {
-                        MessageBox.Show("Username,password and IdCard number must be unique");
-                    }
-                     else if (methods.ValidateAdmin(newUser.Username,newUser.Pasword,newUser.IdCard)==true && methods.ValidateGender(newUser.Gender)==true && methods.ValidatePassword(newUser.Pasword)==true && newUser.Birthdate<DateTime.Now.AddYears(-18))
-                    {
-                        context.tblUsers.Add(newUser);
-                        context.SaveChanges();
-                        MessageBox.Show("Admin is saved");
-                        User = new tblUser();
-                        First = "";
-                        Second = "";
-                    }
-                    else if (methods.ValidateGender(newUser.Gender) == false)
-                    {
-                        MessageBox.Show("Gender can be only \"M\" or \"Z\"");
-
-                    }
-                    else if (methods.ValidatePassword(newUser.Pasword) == false)
-                    {
-                        MessageBox.Show("Password must contain:\n8 characters\n1 number\n1 upper letter\n1 small letter\n1 special character");
-                    }
-                    else if (newUser.Birthdate > DateTime.Now.AddYears(-18))
-                    {
-                        MessageBox.Show("Admin must be at least 18 years old");
+                        MessageBox.Show("Admin already exists. You can not create another one.");
                     }
                     else
                     {
-                        MessageBox.Show("Wrong input");
-                    }
+                        tblUser newUser = new tblUser();
+                        newUser.Birthdate = User.Birthdate;
+                        newUser.FullName = First + " " + Second;
+                        newUser.Citizenship = User.Citizenship;
+                        newUser.IdCard = User.IdCard;
+                        newUser.Username = User.Username;
+                        newUser.Pasword = User.Pasword;
+                        newUser.Gender = User.Gender;
+                        newUser.Manager = true;
+                        newUser.CreatedClinic = false;
+                        if (methods.ValidateAdmin(newUser.Username, newUser.Pasword, newUser.IdCard) == false)
+                        {
+                            MessageBox.Show("Username,password and IdCard number must be unique");
+                        }
+                        else if (methods.ValidateAdmin(newUser.Username, newUser.Pasword, newUser.IdCard) == true && methods.ValidateGender(newUser.Gender) == true && methods.ValidatePassword(newUser.Pasword) == true && newUser.Birthdate < DateTime.Now.AddYears(-18))
+                        {
+                            context.tblUsers.Add(newUser);
+                            context.SaveChanges();
+                            MessageBox.Show("Admin is saved");
+                            User = new tblUser();
+                            First = "";
+                            Second = "";
+                        }
+                        else if (methods.ValidateGender(newUser.Gender) == false)
+                        {
+                            MessageBox.Show("Gender can be only \"M\" or \"Z\"");
+
+                        }
+                        else if (methods.ValidatePassword(newUser.Pasword) == false)
+                        {
+                            MessageBox.Show("Password must contain:\n8 characters\n1 number\n1 upper letter\n1 small letter\n1 special character");
+                        }
+                        else if (newUser.Birthdate > DateTime.Now.AddYears(-18))
+                        {
+                            MessageBox.Show("Admin must be at least 18 years old");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Wrong input");
+                        }
+                    }             
                 }
             }
             catch (Exception e)
