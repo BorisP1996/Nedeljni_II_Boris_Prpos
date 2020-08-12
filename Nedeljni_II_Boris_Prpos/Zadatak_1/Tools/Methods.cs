@@ -364,5 +364,37 @@ namespace Zadatak_1.Tools
                 return false;
             }
         }
+        public bool PatientUniqueNumber(string Number)
+        {
+            try
+            {
+                using (Entity context = new Entity())
+                {
+                    List<tblPatient> patientList = context.tblPatients.ToList();
+
+                    List<string> numberList = new List<string>();
+
+                    foreach (tblPatient item in patientList)
+                    {
+                        numberList.Add(item.CardNumber);
+                    }
+
+                    if (!numberList.Contains(Number))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+                return false;
+            }
+        }
     }
 }

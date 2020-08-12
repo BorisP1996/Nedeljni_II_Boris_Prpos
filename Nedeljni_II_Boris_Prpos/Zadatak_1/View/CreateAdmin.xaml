@@ -106,17 +106,15 @@
                  Text="{Binding User.Gender, UpdateSourceTrigger=PropertyChanged}"
                  VerticalAlignment="Top"
                  Width="120"
-                 Margin="120,343,0,0"
-                 />
+                 Margin="120,343,0,0" />
         <DatePicker HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Margin="483,30,0,0"
-                    SelectedDate="{Binding User.Birthdate,UpdateSourceTrigger=PropertyChanged}"/>
+                    SelectedDate="{Binding User.Birthdate,UpdateSourceTrigger=PropertyChanged}" />
         <Label Content="Birthdate"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Margin="380,27,0,0"
-               Width="78" 
-               />
+               Width="78" />
     </Grid>
 </Window>

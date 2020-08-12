@@ -102,6 +102,7 @@ namespace Zadatak_1.ViewModel
                 {
                     MessageBox.Show("Welcome admin");
                     tblUser viaUser = (from r in context.tblUsers where r.Username == Username && r.Pasword == Password select r).FirstOrDefault();
+                    // if database filed "create clinic" in tblUser is false or null=>open window for creating clinic and than open admin window
                     if (viaUser.CreatedClinic!=true)
                     {
                         CreateClinic createClinic = new CreateClinic(Username);
@@ -110,6 +111,7 @@ namespace Zadatak_1.ViewModel
                         admin.ShowDialog();
                         viaUser.CreatedClinic = true;
                     }
+                    //if admin already created clinic, just open admin window
                     else
                     {
                         Admin admin = new Admin();
