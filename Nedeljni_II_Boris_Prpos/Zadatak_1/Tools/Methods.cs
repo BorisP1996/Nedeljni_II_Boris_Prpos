@@ -396,5 +396,111 @@ namespace Zadatak_1.Tools
                 return false;
             }
         }
+        /// <summary>
+        /// Find maintance who was created first=>has smallest id
+        /// </summary>
+        /// <returns></returns>
+        public int FindMinMaintance()
+        {
+            try
+            {
+                using (Entity context = new Entity())
+                {
+                    List<tblMaintance> list = context.tblMaintances.ToList();
+
+                    List<int> maintanceIDlist = new List<int>();
+
+                    foreach (tblMaintance item in list)
+                    {
+                        maintanceIDlist.Add(item.MaintanceID);
+                    }
+
+                    if (maintanceIDlist.Count==0)
+                    {
+                        return 0;
+                    }
+                    else
+                    {
+                        int minId = maintanceIDlist.Min();
+                        return minId;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+                return 0;
+            }
+        }
+        /// <summary>
+        /// Calculate how many doctor is monitored by same manager
+        /// </summary>
+        /// <param name="managerID"></param>
+        /// <returns></returns>
+        public bool HowManyDoctorsMonitored(int managerID)
+        {
+            try
+            {
+                using (Entity context = new Entity())
+                {
+                    List<tblDoctor> doctorList = new List<tblDoctor>();
+                    doctorList = context.tblDoctors.ToList();
+                    int count=0;
+
+                    foreach (tblDoctor item in doctorList)
+                    {
+                        if (item.ManagerID==managerID)
+                        {
+                            count++;
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    tblManager viaManager = (from r in context.tblManagers where r.ManagerID == managerID select r).FirstOrDefault();
+                    if (viaManager.MaxDoctors>count)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+                return false;
+            }
+        }
+        /// <summary>
+        /// Find how many erors manager has in order to determine if he can monitor any doctor (5 is the limit)
+        /// </summary>
+        /// <param name="managerID"></param>
+        /// <returns></returns>
+        public int FindManagerErors(int managerID)
+        {
+            try
+            {
+                using (Entity context = new Entity())
+                {
+                    tblManager viaManager = (from r in context.tblManagers where r.ManagerID == managerID select r).FirstOrDefault();
+
+                    int erorCount = viaManager.Erors.GetValueOrDefault();
+
+                    return erorCount;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+                return 10;
+            }
+        }
     }
 }

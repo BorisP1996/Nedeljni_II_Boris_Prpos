@@ -95,5 +95,39 @@ namespace Zadatak_1.Tools
                 return 10;
             }
         }
+        public List<vwMaintance> GetMaintance()
+        {
+            try
+            {
+                using (Entity context = new Entity())
+                {
+                    List<vwMaintance> list = new List<vwMaintance>();
+                    list = context.vwMaintances.ToList();
+                    return list;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return null;
+            }
+        }
+        public List<vwPatient> GetPatients()
+        {
+            try
+            {
+                using (Entity context = new Entity())
+                {
+                    List<vwPatient> list = new List<vwPatient>();
+                    list = context.vwPatients.ToList();
+                    return list;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return null;
+            }
+        }
     }
 }

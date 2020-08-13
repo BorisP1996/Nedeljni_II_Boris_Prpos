@@ -44,11 +44,5 @@
                VerticalAlignment="Top"
                Margin="145,123,0,0"
                Width="85" />
-        <Button Content="Create employe"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Width="100"
-                Margin="640,330,0,0"
-                Command="{Binding CreatePat,UpdateSourceTrigger=PropertyChanged}" />
     </Grid>
 </Window>

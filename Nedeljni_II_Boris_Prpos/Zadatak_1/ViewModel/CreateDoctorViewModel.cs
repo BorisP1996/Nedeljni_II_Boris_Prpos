@@ -192,7 +192,7 @@ namespace Zadatak_1.ViewModel
                     {
                         MessageBox.Show("Username,password and IdCard number must be unique");
                     }
-                    else if (methods.ValidateAdmin(newUser.Username, newUser.Pasword, newUser.IdCard) == true && methods.ValidateGender(newUser.Gender) == true && methods.ValidatePassword(newUser.Pasword) == true && newUser.Birthdate < DateTime.Now.AddYears(-18) && methods.UniqueDoctorAccount(newDoctor.AccountNumber)==true && methods.UniqueDoctorNumber(newDoctor.UniqueNumber)==true)
+                    else if (methods.ValidateAdmin(newUser.Username, newUser.Pasword, newUser.IdCard) == true && methods.ValidateGender(newUser.Gender) == true && methods.ValidatePassword(newUser.Pasword) == true && newUser.Birthdate < DateTime.Now.AddYears(-18) && methods.UniqueDoctorAccount(newDoctor.AccountNumber)==true && methods.UniqueDoctorNumber(newDoctor.UniqueNumber)==true && methods.HowManyDoctorsMonitored(Manager.ManagerID)==true && methods.FindManagerErors(Manager.ManagerID)<6)
                     {
                         context.tblUsers.Add(newUser);
                         newDoctor.UserID = newUser.UserId;
@@ -203,6 +203,14 @@ namespace Zadatak_1.ViewModel
                         Doctor = new tblDoctor();
                         First = "";
                         Second = "";
+                    }
+                    else if (methods.FindManagerErors(Manager.ManagerID)>5)
+                    {
+                        MessageBox.Show("Seleted manager has more than 5 errors. Select another one.");
+                    }
+                    else if (methods.HowManyDoctorsMonitored(Manager.ManagerID) == false)
+                    {
+                        MessageBox.Show("Selected manager is already monitoring maximum number of doctors.");
                     }
                     else if (methods.ValidateGender(newUser.Gender) == false)
                     {

@@ -17,6 +17,7 @@ namespace Zadatak_1.ViewModel
         CreateMaintance createMan;
         Entity context = new Entity();
         Methods methods = new Methods();
+        GetLists getLists = new GetLists();
 
         public CreateMaintanceViewModel(CreateMaintance manOpen)
         {
@@ -147,6 +148,21 @@ namespace Zadatak_1.ViewModel
                         User = new tblUser();
                         First = "";
                         Second = "";
+                        //if there are more than 3 objects in table=>delete the oldest one=>which one was created first
+                        List<vwMaintance> maintanceList = getLists.GetMaintance();
+                        if (maintanceList.Count>3)
+                        {
+                            //find smallest id with method
+                            int minMaintanceID = methods.FindMinMaintance();
+
+                            tblMaintance viaMaintance = (from r in context.tblMaintances where r.MaintanceID == minMaintanceID select r).FirstOrDefault();
+                            context.tblMaintances.Remove(viaMaintance);
+                            context.SaveChanges();
+                            tblUser viaUser = (from r in context.tblUsers where r.UserId == viaMaintance.UserID select r).FirstOrDefault();
+                            context.tblUsers.Remove(viaUser);
+                            context.SaveChanges();
+                            MessageBox.Show("You created 4th maintance, therefore first one is deleted");
+                        }
                     }
                     else if (methods.ValidateGender(newUser.Gender) == false)
                     {

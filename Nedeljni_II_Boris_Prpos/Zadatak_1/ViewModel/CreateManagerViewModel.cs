@@ -127,8 +127,16 @@ namespace Zadatak_1.ViewModel
                     tblManager newManager = new tblManager();
                     newManager.HospitalLevel = Manager.HospitalLevel;
                     newManager.MaxDoctors = Manager.MaxDoctors;
-                    newManager.MinRooms = Manager.MinRooms;
                     newManager.Erors = Manager.Erors;
+                    if (newManager.Erors>5)
+                    {
+                        newManager.MinRooms = 0;
+                        MessageBox.Show("Error count is bigger than 5, no room can be monitored\nRoom count will be set to zero");
+                    }
+                    else
+                    {
+                        newManager.MinRooms = Manager.MinRooms;
+                    }
 
                     if (methods.ValidateAdmin(newUser.Username, newUser.Pasword, newUser.IdCard) == false)
                     {
