@@ -5,37 +5,408 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Zadatak_1.View"
         mc:Ignorable="d"
-        Title="Admin" Height="450" Width="800">
-    <Grid>
+        Title="Admin"
+        Height="807"
+        Width="1339">
+    <Grid Margin="0,0,2,4">
+        <DataGrid Name="DataGridUsers"
+                  ItemsSource="{Binding ManagerList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Managervw, UpdateSourceTrigger=PropertyChanged}"
+                  IsReadOnly="True"
+                  HeadersVisibility="Column"
+                  AutoGenerateColumns="False"
+                  HorizontalGridLinesBrush="Black"
+                  BorderBrush="Black"
+                  Foreground="Black"
+                  FontWeight="Bold"
+                  Margin="260,32,39,632">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name"
+                                    Width="100"
+                                    Binding="{Binding FullName}" />
+                <DataGridTextColumn Header="ID Card"
+                                    Width="100"
+                                    Binding="{Binding IdCard}" />
+                <DataGridTextColumn Header="Gender"
+                                    Width="100"
+                                    Binding="{Binding Gender}" />
+                <DataGridTextColumn Header="Birthdate"
+                                    Width="100"
+                                    Binding="{Binding Birthdate,StringFormat=\{0:dd.MM.yy \}}" />
+                <DataGridTextColumn Header="Citizenship"
+                                    Width="100"
+                                    Binding="{Binding Citizenship}" />
+                <DataGridTextColumn Header="Username"
+                                    Width="100"
+                                    Binding="{Binding Username}" />
+                <DataGridTextColumn Header="Password"
+                                    Width="100"
+                                    Binding="{Binding Pasword}" />
+                <DataGridTextColumn Header="Building floor"
+                                    Width="100"
+                                    Binding="{Binding HospitalLevel}" />
+                <DataGridTextColumn Header="Max doctor"
+                                    Width="100"
+                                    Binding="{Binding MaxDoctors}" />
+                <DataGridTextColumn Header="Min Rooms"
+                                    Width="100"
+                                    Binding="{Binding MinRooms}" />
+                <DataGridTextColumn Header="Errors"
+                                    Width="100"
+                                    Binding="{Binding Erors}" />
+                <DataGridTextColumn Header="Manager ID"
+                                    Width="100"
+                                    Binding="{Binding ManagerID}" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Command="{Binding Path=DataContext.DeleteMan, RelativeSource= {RelativeSource FindAncestor,
+                                       AncestorType={x:Type DataGrid}},UpdateSourceTrigger=PropertyChanged}"
+                                     Content="Delete" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Content="Create manager"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Width="100"
                 Margin="35,35,0,0"
-                Command="{Binding Manager,UpdateSourceTrigger=PropertyChanged}"/>
+                Command="{Binding Manager,UpdateSourceTrigger=PropertyChanged}" />
         <Button Content="Create maintance"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Width="100"
-                Margin="35,80,0,0" 
-                Command="{Binding Maintance,UpdateSourceTrigger=PropertyChanged}"/>
+                Margin="35,80,0,0"
+                Command="{Binding Maintance,UpdateSourceTrigger=PropertyChanged}" />
         <Button Content="Create doctor"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Width="100"
-                Margin="35,125,0,0" 
-                Command="{Binding Doctor,UpdateSourceTrigger=PropertyChanged}"/>
+                Margin="35,125,0,0"
+                Command="{Binding Doctor,UpdateSourceTrigger=PropertyChanged}" />
         <Button Content="Create patient"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Width="100"
-                Margin="35,175,0,0" 
-                Command="{Binding Patient,UpdateSourceTrigger=PropertyChanged}"/>
+                Margin="35,175,0,0"
+                Command="{Binding Patient,UpdateSourceTrigger=PropertyChanged}" />
         <Button Content="Close"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Width="100"
-                Margin="35,335,0,0" 
-                Command="{Binding Close,UpdateSourceTrigger=PropertyChanged}"/>
+                Margin="35,720,0,0"
+                Command="{Binding Close,UpdateSourceTrigger=PropertyChanged}" />
+        <Label Content="Managers"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="177,70,0,0"
+               Width="103"
+               Height="32"
+               RenderTransformOrigin="0.455,0.583"
+               FontSize="18">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="-90" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <DataGrid x:Name="DataGridUsers_Copy"
+                  ItemsSource="{Binding DoctorList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Doctorvw, UpdateSourceTrigger=PropertyChanged}"
+                  IsReadOnly="True"
+                  HeadersVisibility="Column"
+                  AutoGenerateColumns="False"
+                  HorizontalGridLinesBrush="Black"
+                  BorderBrush="Black"
+                  Foreground="Black"
+                  FontWeight="Bold"
+                  Margin="260,177,39,482">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name"
+                                    Width="100"
+                                    Binding="{Binding FullName}" />
+                <DataGridTextColumn Header="ID Card"
+                                    Width="100"
+                                    Binding="{Binding IdCard}" />
+                <DataGridTextColumn Header="Gender"
+                                    Width="100"
+                                    Binding="{Binding Gender}" />
+                <DataGridTextColumn Header="Birthdate"
+                                    Width="100"
+                                    Binding="{Binding Birthdate, StringFormat=\{0:dd.MM.yy \}}" />
+                <DataGridTextColumn Header="Citizenship"
+                                    Width="100"
+                                    Binding="{Binding Citizenship}" />
+                <DataGridTextColumn Header="Username"
+                                    Width="100"
+                                    Binding="{Binding Username}" />
+                <DataGridTextColumn Header="Password"
+                                    Width="100"
+                                    Binding="{Binding Pasword}" />
+                <DataGridTextColumn Header="Account number"
+                                    Width="100"
+                                    Binding="{Binding AccountNumber}" />
+                <DataGridTextColumn Header="Department"
+                                    Width="100"
+                                    Binding="{Binding Department}" />
+                <DataGridTextColumn Header="Reception"
+                                    Width="100"
+                                    Binding="{Binding Reception}" />
+                <DataGridTextColumn Header="Shift ID"
+                                    Width="100"
+                                    Binding="{Binding ShiftID}" />
+                <DataGridTextColumn Header="Unique number"
+                                    Width="100"
+                                    Binding="{Binding UniqueNumber}" />
+                <DataGridTextColumn Header="Manager ID"
+                                    Width="100"
+                                    Binding="{Binding ManagerID}" />
+                <DataGridTextColumn Header="Doctor ID"
+                                    Width="100"
+                                    Binding="{Binding DoctorID}" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Command="{Binding DataContext.DeleteDoc, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, UpdateSourceTrigger=PropertyChanged}"
+                                     Content="Delete" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+               
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Doctors"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="180,210,0,0"
+               Width="103"
+               Height="32"
+               RenderTransformOrigin="0.455,0.583"
+               FontSize="18">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="-90" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <DataGrid x:Name="DataGridUsers_Copy1"
+                  ItemsSource="{Binding PatientList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Patientvw, UpdateSourceTrigger=PropertyChanged}"
+                  IsReadOnly="True"
+                  HeadersVisibility="Column"
+                  AutoGenerateColumns="False"
+                  HorizontalGridLinesBrush="Black"
+                  BorderBrush="Black"
+                  Foreground="Black"
+                  FontWeight="Bold"
+                  Margin="260,340,39,324">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name"
+                                    Width="100"
+                                    Binding="{Binding FullName}" />
+                <DataGridTextColumn Header="ID Card"
+                                    Width="100"
+                                    Binding="{Binding IdCard}" />
+                <DataGridTextColumn Header="Gender"
+                                    Width="100"
+                                    Binding="{Binding Gender}" />
+                <DataGridTextColumn Header="Birthdate"
+                                    Width="100"
+                                    Binding="{Binding Birthdate, StringFormat=\{0:dd.MM.yy \}}" />
+                <DataGridTextColumn Header="Citizenship"
+                                    Width="100"
+                                    Binding="{Binding Citizenship}" />
+                <DataGridTextColumn Header="Username"
+                                    Width="100"
+                                    Binding="{Binding Username}" />
+                <DataGridTextColumn Header="Password"
+                                    Width="100"
+                                    Binding="{Binding Pasword}" />
+                <DataGridTextColumn Header="Health card number"
+                                    Width="100"
+                                    Binding="{Binding CardNumber}" />
+                <DataGridTextColumn Header="Insurance expires"
+                                    Width="100"
+                                    Binding="{Binding DateExpire,StringFormat=\{0:dd.MM.yy \}}" />
+                <DataGridTextColumn Header="Doctor ID"
+                                    Width="100"
+                                    Binding="{Binding DoctorID}" />
+               
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Command="{Binding DataContext.DeletePat, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, UpdateSourceTrigger=PropertyChanged}"
+                                     Content="Delete" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Patients"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="180,350,0,0"
+               Width="103"
+               Height="32"
+               RenderTransformOrigin="0.455,0.583"
+               FontSize="18">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="-90" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <DataGrid x:Name="DataGridUsers_Copy2"
+                  ItemsSource="{Binding MaintanceList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Maintancevw, UpdateSourceTrigger=PropertyChanged}"
+                  IsReadOnly="True"
+                  HeadersVisibility="Column"
+                  AutoGenerateColumns="False"
+                  HorizontalGridLinesBrush="Black"
+                  BorderBrush="Black"
+                  Foreground="Black"
+                  FontWeight="Bold"
+                  Margin="260,480,39,177">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name"
+                                    Width="100"
+                                    Binding="{Binding FullName}" />
+                <DataGridTextColumn Header="ID Card"
+                                    Width="100"
+                                    Binding="{Binding IdCard}" />
+                <DataGridTextColumn Header="Gender"
+                                    Width="100"
+                                    Binding="{Binding Gender}" />
+                <DataGridTextColumn Header="Birthdate"
+                                    Width="100"
+                                    Binding="{Binding Birthdate, StringFormat=\{0:dd.MM.yy \}}" />
+                <DataGridTextColumn Header="Citizenship"
+                                    Width="100"
+                                    Binding="{Binding Citizenship}" />
+                <DataGridTextColumn Header="Username"
+                                    Width="100"
+                                    Binding="{Binding Username}" />
+                <DataGridTextColumn Header="Password"
+                                    Width="100"
+                                    Binding="{Binding Pasword}" />
+                <DataGridTextColumn Header="Ambulance duty"
+                                    Width="100"
+                                    Binding="{Binding AmbulanceDuty}" />
+                <DataGridTextColumn Header="Invalid duty"
+                                    Width="100"
+                                    Binding="{Binding InvalidDuty}" />
+                <DataGridTextColumn Header="Grow perrmision"
+                                    Width="100"
+                                    Binding="{Binding GrowPermision}" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Command="{Binding DataContext.DeleteMaint, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, UpdateSourceTrigger=PropertyChanged}"
+                                     Content="Delete" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Maintance"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="182,515,0,0"
+               Width="103"
+               Height="32"
+               RenderTransformOrigin="0.455,0.583"
+               FontSize="18">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="-90" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <DataGrid x:Name="DataGridUsers_Copy3"
+                  ItemsSource="{Binding HospitalList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Hospital, UpdateSourceTrigger=PropertyChanged}"
+                  IsReadOnly="True"
+                  HeadersVisibility="Column"
+                  AutoGenerateColumns="False"
+                  HorizontalGridLinesBrush="Black"
+                  BorderBrush="Black"
+                  Foreground="Black"
+                  FontWeight="Bold"
+                  Margin="260,625,39,32">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name"
+                                    Width="100"
+                                    Binding="{Binding HospitalName}" />
+                <DataGridTextColumn Header="Adress"
+                                    Width="100"
+                                    Binding="{Binding Adress}" />
+                <DataGridTextColumn Header="Est. date"
+                                    Width="100"
+                                    Binding="{Binding StartDate, StringFormat=\{0:dd.MM.yy \}}" />
+                <DataGridTextColumn Header="Owner"
+                                    Width="100"
+                                    Binding="{Binding Owns}" />
+                <DataGridTextColumn Header="Floors"
+                                    Width="100"
+                                    Binding="{Binding Floors}" />
+                <DataGridTextColumn Header="Room/floor"
+                                    Width="100"
+                                    Binding="{Binding Levels}" />
+                <DataGridTextColumn Header="Balcony"
+                                    Width="100"
+                                    Binding="{Binding Balcony}" />
+                <DataGridTextColumn Header="Yard"
+                                    Width="100"
+                                    Binding="{Binding Yard}" />
+                <DataGridTextColumn Header="Ambulance points"
+                                    Width="100"
+                                    Binding="{Binding AmbulancePoint}" />
+                <DataGridTextColumn Header="Invalid points"
+                                    Width="100"
+                                    Binding="{Binding InvalidPoint}" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Command="{Binding DataContext.EditHos, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, UpdateSourceTrigger=PropertyChanged}"
+                                     Content="Edit" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Clinic"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="180,663,0,0"
+               Width="103"
+               Height="32"
+               RenderTransformOrigin="0.455,0.583"
+               FontSize="18">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="-90" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
     </Grid>
 </Window>

@@ -113,6 +113,7 @@
     <Compile Include="Model\vwPatient.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Tools\Deleting.cs" />
     <Compile Include="Tools\GetLists.cs" />
     <Compile Include="Tools\Methods.cs" />
     <Compile Include="ViewModel\AdminViewModel.cs" />

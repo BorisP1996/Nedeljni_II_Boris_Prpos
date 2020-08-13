@@ -72,6 +72,14 @@ namespace Zadatak_1.ViewModel
                 OnPropertyChanged("Second");
             }
         }
+        private bool update;
+
+        public bool Update
+        {
+            get { return update; }
+            set { update = value; }
+        }
+
 
         #region Commands
         private ICommand close;
@@ -153,6 +161,7 @@ namespace Zadatak_1.ViewModel
                         Manager = new tblManager();
                         First = "";
                         Second = "";
+                        Update = true;
                     }
                     else if (methods.ValidateGender(newUser.Gender) == false)
                     {

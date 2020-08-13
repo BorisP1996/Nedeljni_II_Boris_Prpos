@@ -129,5 +129,23 @@ namespace Zadatak_1.Tools
                 return null;
             }
         }
+
+        public List<tblHospital> GetHospitals()
+        {
+            try
+            {
+                using (Entity context = new Entity())
+                {
+                    List<tblHospital> list = new List<tblHospital>();
+                    list = context.tblHospitals.ToList();
+                    return list;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return null;
+            }
+        }
     }
 }

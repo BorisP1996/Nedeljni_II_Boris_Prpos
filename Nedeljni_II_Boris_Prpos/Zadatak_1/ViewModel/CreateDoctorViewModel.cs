@@ -114,6 +114,14 @@ namespace Zadatak_1.ViewModel
                 OnPropertyChanged("Second");
             }
         }
+        private bool update;
+
+        public bool Update
+        {
+            get { return update; }
+            set { update = value; }
+        }
+
 
         #region Commands
         private ICommand close;
@@ -203,6 +211,7 @@ namespace Zadatak_1.ViewModel
                         Doctor = new tblDoctor();
                         First = "";
                         Second = "";
+                        Update = true;
                     }
                     else if (methods.FindManagerErors(Manager.ManagerID)>5)
                     {

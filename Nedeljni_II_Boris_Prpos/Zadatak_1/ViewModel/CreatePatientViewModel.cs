@@ -95,6 +95,14 @@ namespace Zadatak_1.ViewModel
                 OnPropertyChanged("Second");
             }
         }
+        private bool update;
+
+        public bool Update
+        {
+            get { return update; }
+            set { update = value; }
+        }
+
 
         #region Commands
         private ICommand close;
@@ -147,7 +155,7 @@ namespace Zadatak_1.ViewModel
                     newUser.Username = User.Username;
                     newUser.Pasword = User.Pasword;
                     newUser.Gender = User.Gender;
-                    newUser.Manager = true;
+                    newUser.Manager = false;
                     newUser.CreatedClinic = false;
                     tblPatient newPatient = new tblPatient();
                     newPatient.CardNumber = Patient.CardNumber;
@@ -171,6 +179,7 @@ namespace Zadatak_1.ViewModel
                         First = "";
                         Second = "";
                         Patient = new tblPatient();
+                        Update = true;
                     }
                     else if (Patient.DateExpire < DateTime.Now)
                     {

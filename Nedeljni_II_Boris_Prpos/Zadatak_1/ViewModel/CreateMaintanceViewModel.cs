@@ -71,6 +71,13 @@ namespace Zadatak_1.ViewModel
                 OnPropertyChanged("Second");
             }
         }
+        private bool update;
+
+        public bool Update
+        {
+            get { return update; }
+            set { update = value; }
+        }
 
         #region Commands
         private ICommand close;
@@ -148,6 +155,7 @@ namespace Zadatak_1.ViewModel
                         User = new tblUser();
                         First = "";
                         Second = "";
+                        Update = true;
                         //if there are more than 3 objects in table=>delete the oldest one=>which one was created first
                         List<vwMaintance> maintanceList = getLists.GetMaintance();
                         if (maintanceList.Count>3)
