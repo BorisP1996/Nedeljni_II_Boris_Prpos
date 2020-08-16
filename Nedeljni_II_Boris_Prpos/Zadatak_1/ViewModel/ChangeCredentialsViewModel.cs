@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Zadatak_1.Model;
 using Zadatak_1.Tools;
 using Zadatak_1.Command;
@@ -17,6 +13,7 @@ namespace Zadatak_1.ViewModel
         ChangeCredentials changeCred;
         Entity context = new Entity();
 
+        //in order for this window to open user must input credentials from "MasterCredentials.txt" file
         public ChangeCredentialsViewModel(ChangeCredentials changeCredOpen)
         {
             changeCred = changeCredOpen;
@@ -87,6 +84,9 @@ namespace Zadatak_1.ViewModel
                 return save;
             }
         }
+        /// <summary>
+        /// Saves new credentials to file
+        /// </summary>
         private void SaveExecute()
         {
             try

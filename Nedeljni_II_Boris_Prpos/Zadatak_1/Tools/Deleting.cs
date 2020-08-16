@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using Zadatak_1.Model;
 
 namespace Zadatak_1.Tools
 {
+    /// <summary>
+    /// Class contains method that deletes different types of users, taking in consideration foreign key 
+    /// ona manager can be referenced in many doctors and one doctor can be referenced in many users
+    /// and each and everyone of them is referenced in table users
+    /// </summary>
     class Deleting
     {
-
         public void DeleteUser(int userID)
         {
             try

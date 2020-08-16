@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using Zadatak_1.Model;
 
 namespace Zadatak_1.Tools
 {
+    /// <summary>
+    /// This class contains method that get lists of different types
+    /// For displaying in data grid or in combobox
+    /// </summary>
     class GetLists
     {
         public List<tblShift> GetShifts()

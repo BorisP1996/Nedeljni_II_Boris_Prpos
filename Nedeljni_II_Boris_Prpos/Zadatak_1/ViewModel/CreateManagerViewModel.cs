@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Zadatak_1.Model;
 using Zadatak_1.Tools;
 using Zadatak_1.Command;
@@ -12,6 +8,9 @@ using System.Windows;
 
 namespace Zadatak_1.ViewModel
 {
+    /// <summary>
+    /// Type of user Manager is created in this class
+    /// </summary>
     class CreateManagerViewModel : ViewModelBase
     {
         CreateManager createMan;

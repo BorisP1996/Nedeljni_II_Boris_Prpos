@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Zadatak_1.Command;
@@ -300,6 +298,13 @@ namespace Zadatak_1.ViewModel
         }
         #endregion
 
+        /// <summary>
+        /// Command for deleting each and everyone from user table
+        /// Foreign key is taken in consideration when deleting different type odf users
+        /// manager is referenced by many doctors
+        /// doctor is referenced by manu patients
+        /// everyone is referenced in tbl user
+        /// </summary>
         #region DeleteComands
         private ICommand deleteMan;
         public ICommand DeleteMan

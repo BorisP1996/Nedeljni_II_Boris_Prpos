@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using Zadatak_1.Model;
 
@@ -59,7 +57,11 @@ namespace Zadatak_1.Tools
                 return false;
             }
         }
-
+        /// <summary>
+        /// Write new master credentials to file, when you want to overwrite existing one
+        /// </summary>
+        /// <param name="newUser"></param>
+        /// <param name="newPas"></param>
         public void WriteNewCredentials(string newUser,string newPas)
         {
             try
@@ -76,7 +78,7 @@ namespace Zadatak_1.Tools
             }
         }
         /// <summary>
-        /// 
+        /// username, pasword and id card must be valid
         /// </summary>
         /// <param name="username"></param>
         /// <param name="pasword"></param>
@@ -117,6 +119,11 @@ namespace Zadatak_1.Tools
                 
             }
         }
+        /// <summary>
+        /// gender can be m or z only
+        /// </summary>
+        /// <param name="gender"></param>
+        /// <returns></returns>
         public bool ValidateGender(string gender)
         {
             if (gender=="M" || gender =="m" || gender =="z" || gender=="Z")
@@ -141,6 +148,7 @@ namespace Zadatak_1.Tools
                 bool small=false;
                 bool big=false;
                 bool number=false;
+                bool special = false;
 
                 char[] array = pasword.ToCharArray();
 
@@ -158,13 +166,17 @@ namespace Zadatak_1.Tools
                     {
                         number = true;
                     }
+                    if (array[i] == '!' || array[i] == '"' || array[i] == '#' || array[i] == '$' || array[i] == '%' || array[i]=='&' || array[i] == '(' || array[i] == ')' || array[i] == '*' || array[i] == '+' || array[i] == '/' || array[i] == ',' || array[i] == '-' || array[i] == '?' || array[i] == '=' || array[i] == '>' || array[i] == '<')
+                    {
+                        special = true;
+                    }
                 }
                 if (pasword.Length>=8)
                 {
                     length = true;
                 }
 
-                if (small == true && big == true && number == true && length == true)
+                if (small == true && big == true && number == true && length == true && special==true)
                 {
                     return true;
                 }
@@ -181,6 +193,13 @@ namespace Zadatak_1.Tools
                 return false;
             }
         }
+
+        /// <summary>
+        /// fucntion discovers whos logged in based on username and password
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="pasword"></param>
+        /// <returns></returns>
         public int DeterminLoger(string username,string pasword)
         {
             try
@@ -304,6 +323,12 @@ namespace Zadatak_1.Tools
                 return 10;
             }
         }
+
+        /// <summary>
+        /// doctor unique number must be unique
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
         public bool UniqueDoctorNumber(string number)
         {
             try
@@ -334,6 +359,12 @@ namespace Zadatak_1.Tools
                 return false;
             }
         }
+
+        /// <summary>
+        /// Doctor account must be unique
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
         public bool UniqueDoctorAccount(string number)
         {
             try
@@ -364,6 +395,12 @@ namespace Zadatak_1.Tools
                 return false;
             }
         }
+
+        /// <summary>
+        /// patient number must be unique
+        /// </summary>
+        /// <param name="Number"></param>
+        /// <returns></returns>
         public bool PatientUniqueNumber(string Number)
         {
             try
@@ -397,7 +434,7 @@ namespace Zadatak_1.Tools
             }
         }
         /// <summary>
-        /// Find maintance who was created first=>has smallest id
+        /// Find maintance who was created first=>has smallest id=>be cause when 4th is created you must delete first=>max capacity is 3
         /// </summary>
         /// <returns></returns>
         public int FindMinMaintance()

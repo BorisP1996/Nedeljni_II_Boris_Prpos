@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Zadatak_1.Model;
 using Zadatak_1.Command;
 using System.Windows.Input;
@@ -88,6 +85,9 @@ namespace Zadatak_1.ViewModel
                 return login;
             }
         }
+        /// <summary>
+        /// Determins whos logged and opens new window according to that
+        /// </summary>
         private void LoginExecute()
         {
             try

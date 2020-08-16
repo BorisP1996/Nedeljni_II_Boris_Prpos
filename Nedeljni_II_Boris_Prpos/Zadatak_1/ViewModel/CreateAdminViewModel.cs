@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Zadatak_1.Model;
 using Zadatak_1.Tools;
 using Zadatak_1.Command;
@@ -89,7 +85,9 @@ namespace Zadatak_1.ViewModel
                 return save;
             }
         }
-
+        /// <summary>
+        /// Method saves new admin taking in consideration every validation rule and using various method from Tools folder
+        /// </summary>
         private void SaveExecute()
         {
             try
